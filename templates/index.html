@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>トップページ</title>
+</head>
+<body>
+    <h1>ようこそ、Pythonの世界へ！</h1>
+    <p>今の気分は； {{emotion}}</p>
+
+    <h2>修得スキル一覧</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{{skill}}</li>
+        {% endfor %}
+    </ul>
+
+    <hr><h2>ユーザーページへ移動</h2>
+    <p>名前を入れてね：</p>
+
+    <input type="text" id="nameInput" placeholder="例：Gemini">
+    <button onclick="jumpToUser()">移動！</button>
+    <script>
+        function jumpToUser(){
+           var name =document.getElementById('nameInput').value;
+           if (name){
+            window.location.href="/user/"+ name;
+           } else {
+            alert("名前を入れて！");
+           }
+        }
+    </script>
+
+</body>
+</html>
