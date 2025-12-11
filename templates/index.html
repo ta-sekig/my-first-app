@@ -16,20 +16,22 @@
     </ul>
 
     <hr><h2>ユーザーページへ移動</h2>
+    <form action = "/receive_name" method = "POST">
     <p>名前を入れてね：</p>
 
-    <input type="text" id="nameInput" placeholder="例：Gemini">
-    <button onclick="jumpToUser()">移動！</button>
-    <script>
-        function jumpToUser(){
-           var name =document.getElementById('nameInput').value;
-           if (name){
-            window.location.href="/user/"+ name;
-           } else {
-            alert("名前を入れて！");
-           }
-        }
-    </script>
+    <input type="text" name="my_name" placeholder="例：Gemini">
+    <input type = "submit" value = "送信!">
+
+    </form>
+
+    <hr>
+    <h2>データベース登録者リスト</h2>
+    <ul>
+        {% for user in users %}
+            <li>ID : {{user.id}} / {{user.username}}</li>
+        {% endfor %}
+    </ul>
+
 
 </body>
 </html>
